@@ -11,8 +11,9 @@ import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.Hashtable;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.HashMap;
 import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
@@ -91,14 +92,29 @@ public class SkyrimINITweakerView extends FrameView {
     {
         
         String ligne;
-Hashtable hash = new Hashtable;
+HashMap hash = new HashMap();
 
 // On ouvre le fichier
-File f = new File("fichier_pram.ini");
-if( f.exists() )
+BufferedReader reader= new BufferedReader(new FileReader("P:\\Skyrim_INI_Tweaker\\src\\skyriminitweaker\\resources\\SkyrimPrefs.ini"));
+
+String param, value;
+int i;
+
+
+while(( ligne = reader.readLine() ) != null )
 {
-while( ( ligne = f.readLine() ) != null )
-hash.put(clé,valeur);
+    //Repérez l'emplacement du signe =
+    for (i=0;i<ligne.length();i++)
+    {
+        if (ligne.charAt(i)=='=')
+        { 
+            break;
+        }
+    }
+    
+    param=ligne.substring(0, i);
+    value=ligne.substring((i+1),ligne.length());
+hash.put(param,value);
 } 
     }
     public void showAboutBox() {
@@ -122,7 +138,7 @@ hash.put(clé,valeur);
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cbDOF = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
@@ -143,8 +159,8 @@ hash.put(clé,valeur);
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
 
-        jCheckBox1.setText(resourceMap.getString("jCheckBox1.text")); // NOI18N
-        jCheckBox1.setName("jCheckBox1"); // NOI18N
+        cbDOF.setText(resourceMap.getString("cbDOF.text")); // NOI18N
+        cbDOF.setName("cbDOF"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -154,7 +170,7 @@ hash.put(clé,valeur);
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(6, 6, 6)
-                .addComponent(jCheckBox1)
+                .addComponent(cbDOF)
                 .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -162,7 +178,7 @@ hash.put(clé,valeur);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbDOF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -256,8 +272,8 @@ hash.put(clé,valeur);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox cbDOF;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainPanel;

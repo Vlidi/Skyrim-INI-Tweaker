@@ -47,7 +47,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbDOF" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="94" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -57,7 +57,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jLabel1" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jCheckBox1" alignment="0" max="32767" attributes="1"/>
+                          <Component id="cbDOF" alignment="0" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
@@ -71,10 +71,10 @@
                 <Property name="name" type="java.lang.String" value="jLabel1" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+            <Component class="javax.swing.JCheckBox" name="cbDOF">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jCheckBox1.text"/>
-                <Property name="name" type="java.lang.String" value="jCheckBox1" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="cbDOF.text"/>
+                <Property name="name" type="java.lang.String" value="cbDOF" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>
